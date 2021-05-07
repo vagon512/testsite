@@ -1,0 +1,59 @@
+hr{
+  border: 0;
+  height: 2px;
+  background: #000;
+}
+
+.my_p{
+  text-size: 1.3em;
+ # background-image: url(../pic/background/b009.jpg);
+  color: black;
+  text-indent: 20px;
+  margin: 50px;
+  padding: 15px;
+  width:40%;
+  border-style: solid;
+  border-radius: 20px;
+  margin-left: auto;
+  margin-right: auto;
+ }
+
+div.main{
+  padding: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  margin-bottom: 1px;
+  width: 50%;
+}  
+
+.workspace{
+  padding: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1px;
+  width: 50%;
+}
+
+a {
+  color: #32CD32;
+  text-decoration: none;
+  font-size: 1.4em;
+}
+.my_ul{
+  list-style-type: none;
+}
+
+.my_ul li{
+  margin: 5px;
+  padding:3px;
+  display: inline-block;
+  border-width: 1px;
+  border-color: red;
+  border-style: solid;
+  background: #FF4500;
+}
+
+#.my_ul li:hover{
+#  background-color: green;
+#}
