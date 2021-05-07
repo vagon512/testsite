@@ -12,8 +12,8 @@ hr{
   margin: 50px;
   padding: 15px;
   width:40%;
-  border-style: solid;
-  border-radius: 20px;
+  #border-style: solid;
+  #border-radius: 20px;
   margin-left: auto;
   margin-right: auto;
  }
@@ -36,7 +36,7 @@ div.main{
 }
 
 a {
-  color: #32CD32;
+  color: #black;
   text-decoration: none;
   font-size: 1.4em;
 }
