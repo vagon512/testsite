@@ -9,7 +9,7 @@ hr{
  # background-image: url(../pic/background/b009.jpg);
   color: black;
   text-indent: 20px;
-  margin: 50px;
+  margin: 10px;
   padding: 15px;
   width:40%;
   #border-style: solid;
@@ -36,7 +36,7 @@ div.main{
 }
 
 a {
-  color: #black;
+  color: black;
   text-decoration: none;
   font-size: 1.4em;
 }
@@ -49,7 +49,7 @@ a {
   padding:3px;
   display: inline-block;
   border-width: 1px;
-  border-color: red;
+  border-color: black;
   border-style: solid;
   background: #c0c0c0;
 }
