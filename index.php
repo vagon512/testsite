@@ -16,7 +16,9 @@ $page->head();
          <input type=password name=passwd size=20>
          <br>
          <input type=submit value=GO>
-         </form>";
+         </form>
+         <br>
+         <a href=register.php>Registration</a>";
   if($_POST['login']){
   	echo $_POST['login'];
   }
