@@ -2,7 +2,11 @@
 require_once "inc/page_struct.php";
 require_once "inc/db.php";
 
-
+$mysqli = new mysqli($dbHost, $dbUser, $dbPassword, $dbBase);
+		if($mysqli->connect_error){
+			printf("Соединение не удалось: %s\n", $mysqli->connect_error);
+  			exit();
+		}
 $page = new PageStruct("Помощник по ЯПам", "Добро пожаловать в помощник");
 $page->head();
 ?>

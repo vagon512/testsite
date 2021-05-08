@@ -15,7 +15,7 @@ class PageStruct{
       <html>
       <head>
         <title>{$this->name}</title>
-        <link rel=\"stylesheet\" href=\"style/style.css\"
+        <link rel=\"stylesheet\" href=\"style/style.css\">
       </head>
       <body>
       <div class=main>
