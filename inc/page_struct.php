@@ -36,6 +36,7 @@ class PageStruct{
         </ul>
         <hr noshade>
       </div>";
+      echo "hello";
   }
 
   public function foot(){

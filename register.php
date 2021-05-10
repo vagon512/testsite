@@ -1,12 +1,16 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors',1);
+ini_set('error_reporting', E_ALL);
+
 require_once "inc/page_struct.php";
 require_once "inc/db.php";
 
-$mysqli = new mysqli($dbHost, $dbUser, $dbPassword, $dbBase);
-		if($mysqli->connect_error){
-			printf("Соединение не удалось: %s\n", $mysqli->connect_error);
-  			exit();
-		}
+
+
+
+
+
 $page = new PageStruct("Помощник по ЯПам", "Добро пожаловать в помощник");
 $page->head();
 ?>
@@ -14,7 +18,9 @@ $page->head();
 <p>
 	Регистрация
 </p>
+
 <?php
+
 $registrationForm= "<table border=0>
         <form action=register.php method=post>
           <input type=hidden name=seenform value=y>
@@ -87,8 +93,10 @@ else{
 
 		
 
-		$queryInsertUser = "INSERT INTO users value(0, $userName, $userPatronymic, $userSirname, $userLogin,
-		md5(\"$userPassword\"), $userEmail)";
+		$queryInsertUser = "INSERT INTO users values(0, \"$userName\", \"$userPatronymic\", \"$userSirname\", \"$userLogin\",
+		md5(\"$userPassword\"), \"$userEmail\")";
+
+		echo $queryInsertUser;
 
 		$result = $mysqli->query($queryInsertUser);
 		if(!$result){
