@@ -1,6 +1,9 @@
 <?php
 //function for header and footer in each page
 
+session_start();
+$_SESSION["test"] = "test message from session";
+
 class PageStruct{
 
   private $pageName;
@@ -36,7 +39,6 @@ class PageStruct{
         </ul>
         <hr noshade>
       </div>";
-      echo "hello";
   }
 
   public function foot(){
