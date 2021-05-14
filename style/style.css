@@ -36,9 +36,14 @@ div.main{
 }
 
 a {
+  color: blue;
+  text-decoration: none;
+  font-size: .8em;
+}
+.my_ul li a{
   color: black;
   text-decoration: none;
-  font-size: 1.4em;
+  font-size: 1.3em;
 }
 .my_ul{
   list-style-type: none;

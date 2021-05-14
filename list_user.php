@@ -2,7 +2,7 @@
 require_once "inc/page_struct.php";
 require_once "inc/db.php";
 
-$page = new PageStruct("Помощник по PHP", "Список польователей");
+$page = new PageStruct("Помощник по ЯПам", "Добро пожаловать в помощник", $_SESSION['is_auth'], $_SESSION['userName']);
 $page->head();
 
 $querySelectUser = "SELECT userName, userPatronymic, userSirname, userLogin, userEmail FROM users";

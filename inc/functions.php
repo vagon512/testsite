@@ -61,8 +61,9 @@ $mysqli = new mysqli($dbHost, $dbUser, $dbPassword, $dbBase);
 			$_SESSION["Login"] = $row["userLogin"];
 			$_SESSION["userName"] = $row['userName'];
 			$_SESSION["is_auth"] = true; //Делаем пользователя авторизованным
-			echo $_SESSION['userName']." Вы успешно вошли в систему!";
+			
 		  } 
+          echo $_SESSION['userName']." Вы успешно вошли в систему!";
 		  return true;
 	    }
         

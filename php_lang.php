@@ -1,7 +1,7 @@
 <?php
 require_once "inc/page_struct.php";
 
-$page = new PageStruct("Помощник по PHP", "Добро пожаловать в помощник PHP");
+$page = new PageStruct("Помощник по ЯПам", "Добро пожаловать в помощник", $_SESSION['is_auth'], $_SESSION['userName']);
 $page->head();
 ?>
 <div class=my_p>

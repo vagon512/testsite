@@ -5,7 +5,7 @@ require_once "inc/functions.php";
 
 
 
-$page = new PageStruct("Помощник по PHP", "Добавление проекта");
+$page = new PageStruct("Помощник по ЯПам", "Добро пожаловать в помощник", $_SESSION['is_auth'], $_SESSION['userName']);
 $page->head();
 
 //$listLang = new language();
