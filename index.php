@@ -1,9 +1,10 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors',1);
-ini_set('error_reporting', E_ALL);
+//ini_set('display_errors', 1);
+//ini_set('display_startup_errors',1);
+//ini_set('error_reporting', E_ALL);
 require_once "inc/page_struct.php";
-require_once "inc/db.php";
+//require_once "inc/db.php";
+require_once "inc/functions.php";
 
 $page = new PageStruct("Помощник по ЯПам", "Добро пожаловать в помощник");
 $page->head();
@@ -30,22 +31,24 @@ $page->head();
 if($_POST['seenform']){
 	$login = $_POST['login'];
 	$password = $_POST['passwd'];
-
-	$querySelectUser = "SELECT * FROM users WHERE userLogin = \"$login\" AND userPassword = md5(\"$password\")";
+    $auth = new AuthClass($login, $password);
+    $auth->auth($login, $password);
+    $auth->getLogin();
+	//$querySelectUser = "SELECT * FROM users WHERE userLogin = \"$login\" AND userPassword = md5(\"$password\")";
 
     // echo $querySelectUser;
-	$result = $mysqli->query($querySelectUser);
-	if(!$result){
-		echo "error select user";
-	}
-	else{
-		while($row = $result->fetch_assoc()){
-			$_SESSION["idUser"] = $row['idUser'];
-			$_SESSION["Login"] = $row["userLogin"];
-			$_SESSION["userName"] = $row['userName'];
-			echo $_SESSION['userName']." Вы успешно вошли в систему!";
-		}
-	}
+	// $result = $mysqli->query($querySelectUser);
+	// if(!$result){
+	// 	echo "error select user";
+	// }
+	// else{
+	// 	while($row = $result->fetch_assoc()){
+	// 		$_SESSION["idUser"] = $row['idUser'];
+	// 		$_SESSION["Login"] = $row["userLogin"];
+	// 		$_SESSION["userName"] = $row['userName'];
+	// 		echo $_SESSION['userName']." Вы успешно вошли в систему!";
+	// 	}
+	// }
 }
   
 // echo $_SESSION['idUser']."====".$_SESSION['userName'];
