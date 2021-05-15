@@ -80,7 +80,7 @@ class PageStruct{
     if ($_GET["is_exit"] == 1) {
         $_SESSION = array(); //Очищаем сессию
         session_destroy();
-        header("Location: ?is_exit=0"); //Редирект после выхода
+        header("Location: index.php?is_exit=0"); //Редирект после выхода
     }
 }
   }

@@ -1,4 +1,7 @@
 <?php
+// ini_set('display_errors', 1);
+// ini_set('display_startup_errors',1);
+// ini_set('error_reporting', E_ALL);
 require_once "inc/page_struct.php";
 require_once "inc/db.php";
 require_once "inc/functions.php";
@@ -7,8 +10,13 @@ require_once "inc/functions.php";
 
 $page = new PageStruct("Помощник по ЯПам", "Добро пожаловать в помощник", $_SESSION['is_auth'], $_SESSION['userName']);
 $page->head();
+if(!$_SESSION['is_auth']){
+	echo "Для добавления примеров необходимо <a href=register.php?event=sign>авторизоваться</a><br>
+	Если у Вас нет аккаунта, то можете <a href=register.php?event=registration>зарегистрироваться</a>";
+}
+else{
 
-//$listLang = new language();
+	//$listLang = new language();
 $formStart = "<div class = my_p><form action=add_data.php method=POST>
           <input type = hidden name = seenform value = y>
 		  <table>
@@ -41,7 +49,7 @@ $formFinish = "</td>
 			</tr>
 			<tr>
 			  <td colspan = 2 align = right>
-                            <textarea name=bigMessage rows=15 cols=60></textarea>
+                            <textarea class=\"content\" name=text rows=15 cols=60></textarea>
                           </td>
 			</tr>
                         <tr>
@@ -57,15 +65,37 @@ if(!$_POST['seenform']){
 	listLang();
 	echo $formFinish;
 }
+//обработка формы
 else{
   $lang = $_POST['language'];
-  $selection = $_POST['selection'];
+  $selection = $_POST['selections'];
   $subject = $_POST['subject'];
   $link1 = $_POST['link1'];
   $link2 = $_POST['link2'];
-  $bigMessage = $_POST['bigMessage'];
+  $_POST['text'] = str_replace('"', '\"', $_POST['text']);
+  $_POST['text'] = str_replace('<', '&lt;', $_POST['text']);
+  $_POST['text'] = str_replace('>', '&gt;', $_POST['text']);
+  //echo $_POST['text'];
+  $bigMessage = "<code>".$_POST['text']."</code>";
+  $userID = $_SESSION['idUser'];
+
+  $queryInsertProject = "INSERT INTO project VALUES(0, $userID, \"$lang\", \"$selection\", \"$subject\", \"$link1\", \"$link2\", \"$bigMessage\")";
+
+  // echo $bigMessage;
+  // echo $queryInsertProject;
+  $result = $mysqli->query($queryInsertProject);
+  if(!$result){
+  	echo "error insert project";
+  }
+
+  else{
+  	echo "All OK";
+  }
+
 
   
 }
+}
+
 $page->foot();
 ?>
